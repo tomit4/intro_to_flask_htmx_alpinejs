@@ -23,7 +23,7 @@
     <main>
       <article>
         <h1>My HTMX Experiment</h1>
-        <div hx-get="/posts" hx-trigger="mouseenter once">Enter Me</div>
+        <div hx-get="/posts" hx-trigger="mouseenter once" hx-swap="outerHTML">Enter Me</div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -37,5 +37,6 @@
     </main>
   </body>
   <script src={{ url_for('static', filename='__modules/htmx.min.js') }} default defer></script>
+  <script src={{ url_for('static', filename='__modules/alpine.min.js') }} default defer></script>
   <script src={{ url_for('static', filename='scripts/index.js') }} default defer></script>
 </html>
