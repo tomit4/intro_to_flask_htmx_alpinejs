@@ -4,13 +4,19 @@ This is a short introduction to Flask, HTMX, and AlpineJS (with SQLite to be use
 
 Follow this [basic introduction](https://flask.palletsprojects.com/en/2.2.x/quickstart/).
 
-To start python venv:
+To start new python virtual environment:
+
+```
+python -m venv venv
+```
+
+And then activate that venv:
 
 ```
 source venv/bin/activate
 ```
 
-And to end:
+And to end venv:
 
 ```
 deactivate
