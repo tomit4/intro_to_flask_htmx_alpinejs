@@ -1,4 +1,4 @@
-<div x-data="{posts: {{ posts }}}">
+<div x-data="{posts: []}" x-init="posts = await await({{ posts }})">
   <template x-for="post in posts">
     <div class="post-list">
       <p x-text="post['created']"></p>
