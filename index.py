@@ -35,7 +35,7 @@ def posts():
     posts = json.dumps([dict(post) for post in posts])
     conn.close()
     if request.method == 'GET':
-        return render_template('get_example.html', posts=posts)
+        return render_template('posts.html', posts=posts)
 
 
 @app.route('/create', methods=('GET', 'POST'))
