@@ -10,6 +10,8 @@ Note the [official documentation for HTMX](https://htmx.org/docs).
 
 And the [offical documentation for AlpineJS](https://alpinejs.dev/).
 
+Of Interest also might be [this link on using jinja templates with AlpinJS](https://gigi.nullneuron.net/gigilabs/minimal-web-application-with-flask-and-alpinejs/).
+
 To start new python virtual environment (uses [virtualenvwrapper on Artix](https://wiki.archlinux.org/title/Python/Virtual_environment)):
 
 ```
