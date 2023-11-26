@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request
+from flask_cors import CORS
 import sqlite3
 
 app = Flask(__name__, static_folder='public')
+CORS(app)
 
 
 def get_db_connection():
@@ -11,13 +13,17 @@ def get_db_connection():
 
 
 @app.route('/')
-@app.route('/<name>')
-def index(name=None):
+def index():
+    return render_template('index.html')
+
+
+@app.route('/posts')
+def posts():
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
     conn.close()
     if request.method == 'GET':
-        return render_template('index.html', posts=posts, name=name)
+        return render_template('get_example.html', posts=posts)
 
 
 #  @app.route('/')

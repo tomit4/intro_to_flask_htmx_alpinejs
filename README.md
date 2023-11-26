@@ -4,16 +4,22 @@ This is a short introduction to Flask, HTMX, and AlpineJS (with SQLite to be use
 
 Follow this [basic introduction](https://flask.palletsprojects.com/en/2.2.x/quickstart/).
 
-To start new python virtual environment:
+To start new python virtual environment (uses [virtualenvwrapper on Artix](https://wiki.archlinux.org/title/Python/Virtual_environment)):
 
 ```
-python -m venv venv
+mkvirtualenv envname
 ```
 
 And then activate that venv:
 
 ```
-source venv/bin/activate
+workon envname
+```
+
+To Install new packages:
+
+```
+pip install <package-name>
 ```
 
 And to end venv:

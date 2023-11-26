@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>html page</title>
+    <title>htmx experiment</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
@@ -10,50 +10,32 @@
     />
     <meta name="description" content="" />
     <link rel="icon" type="image/x-icon" href="favicon.png" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href={{ url_for('static', filename='style.css') }}
-    />
+    <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/style.css') }} />
     <link
       rel="preload"
-      href={{ url_for('static', filename='style.css') }}
+      href={{ url_for('static', filename='css/style.css') }}
       as="style"
       onload='this.onload=null,this.rel="stylesheet"'
     />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href={{ url_for('static', filename='style.css') }}
-    /></noscript>
+    <noscript><link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }} /></noscript>
   </head>
-  <body>
+  <body hx-boost="true">
     <main>
       <article>
-        <h1>My Heading</h1>
-        {% if name %}
-            <p>Hello {{ name }}</p>
-        {% elif posts %}
-            {% for post in posts %}
-                <div class="post">
-                    <p>{{ post['created'] }}</p>
-                    <h2>{{ post['title'] }}</h2>
-                    <p>{{ post['content'] }}</p>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        {% endif %}
+        <h1>My HTMX Experiment</h1>
+        <div hx-get="/posts" hx-trigger="mouseenter once">Enter Me</div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
       </article>
     </main>
   </body>
-  <script src={{ url_for('static', filename='index.js') }} default defer></script>
+  <script src={{ url_for('static', filename='__modules/htmx.min.js') }} default defer></script>
+  <script src={{ url_for('static', filename='scripts/index.js') }} default defer></script>
 </html>
