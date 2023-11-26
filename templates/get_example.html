@@ -1,9 +1,12 @@
 <div>
-  {% for post in posts %}
-  <div class="post">
-    <p>{{ post['created'] }}</p>
-    <h2>{{ post['title'] }}</h2>
-    <p>{{ post['content'] }}</p>
+    <div x-data="{posts: {{ posts }}}">
+      <template x-for="post in posts">
+        <div>
+            <p x-text="post['created']"></p>
+            <h2 x-text="post['title']"></h2>
+            <p x-text="post['content']"></p>
+        </div>
+      </template>
+    </div>
   </div>
-  {% endfor %}
 </div>

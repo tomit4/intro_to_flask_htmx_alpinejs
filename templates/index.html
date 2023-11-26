@@ -40,6 +40,7 @@
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <div class="content">
+            <!-- TODO: Jinja block content can be replaced by HTMX get request?? -->
             {% block content %} {% endblock %}
             <p x-data="{ messages: {{get_flashed_messages() }}}" x-text="messages"></p>
         </div>

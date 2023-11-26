@@ -1,5 +1,6 @@
-from flask import Flask, get_flashed_messages, render_template, request, flash, redirect, url_for, session
+from flask import Flask, get_flashed_messages, render_template, request, flash, redirect, url_for
 from dotenv import dotenv_values, load_dotenv
+import json
 
 load_dotenv()
 from flask_cors import CORS
@@ -23,8 +24,15 @@ def index():
 
 @app.route('/posts')
 def posts():
+    '''
+        NOTE: This json.dumps is counter-intuitive as we're 
+        looking to return HTML, but sqlite returns raw data 
+        not in JSON or XML style format. 
+        (Jinja does transpilation under the hood?)
+    '''
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
+    posts = json.dumps([dict(post) for post in posts])
     conn.close()
     if request.method == 'GET':
         return render_template('get_example.html', posts=posts)
@@ -46,13 +54,13 @@ def create():
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
-    # TODO: this is the wrong approach when used with HTMX, we want serve html via live server and somehow get
     print(get_flashed_messages())
     return render_template('create.html')
 
 
+# NOTE: Notice how flask expresses url string params
 #  @app.route('/')
-#  @app.route('/name')
+#  @app.route('/<name>')
 #  def index(name=None):
 #  return render_template("index.html", name=name)
 
