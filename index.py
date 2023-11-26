@@ -27,7 +27,7 @@ def posts():
     '''
         NOTE: This json.dumps is counter-intuitive as we're 
         looking to return HTML, but sqlite returns raw data 
-        not in JSON or XML style format. 
+        not in JSON or XML style format. This is what AlpineJS expects...
         (Jinja does transpilation under the hood?)
     '''
     conn = get_db_connection()

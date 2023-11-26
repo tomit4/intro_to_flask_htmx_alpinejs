@@ -1,10 +1,9 @@
 <div x-data="{posts: {{ posts }}}">
   <template x-for="post in posts">
     <div class="post-list">
-        <p x-text="post['created']"></p>
-        <h2 x-text="post['title']"></h2>
-        <p x-text="post['content']"></p>
+      <p x-text="post['created']"></p>
+      <h2 x-text="post['title']"></h2>
+      <p x-text="post['content']"></p>
     </div>
   </template>
-</div>
 </div>
