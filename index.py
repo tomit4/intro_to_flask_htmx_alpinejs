@@ -54,7 +54,6 @@ def create():
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
-    print(get_flashed_messages())
     return render_template('create.html')
 
 
