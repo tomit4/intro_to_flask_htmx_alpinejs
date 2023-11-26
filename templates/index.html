@@ -21,9 +21,15 @@
   </head>
   <body hx-boost="true">
     <main>
+        <nav>
+            <a href={{ url_for('index') }}>FlaskApp</a>
+            <a href={{ url_for('create') }}>Create</a>
+            <a href="#">About</a>
+        </nav>
       <article>
-        <h1>My HTMX Experiment</h1>
-        <div hx-get="/posts" hx-trigger="mouseenter once" hx-swap="outerHTML">Enter Me</div>
+          <hr>
+        <h1>Posts</h1>
+        <div hx-get="/posts" hx-trigger="mouseenter once" hx-swap="outerHTML">See Posts (Hover)</div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -33,6 +39,9 @@
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
+        <div class="content">
+            {% block content %} {% endblock %}
+        </div>
       </article>
     </main>
   </body>
