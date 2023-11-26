@@ -33,6 +33,14 @@
         <h1>My Heading</h1>
         {% if name %}
             <p>Hello {{ name }}</p>
+        {% elif posts %}
+            {% for post in posts %}
+                <div class="post">
+                    <p>{{ post['created'] }}</p>
+                    <h2>{{ post['title'] }}</h2>
+                    <p>{{ post['content'] }}</p>
+                </div>
+            {% endfor %}
         {% else %}
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
