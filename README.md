@@ -7,7 +7,7 @@ Follow this [basic introduction](https://flask.palletsprojects.com/en/2.2.x/quic
 To start python venv:
 
 ```
-. venv/bin/activate
+source venv/bin/activate
 ```
 
 And to end:
