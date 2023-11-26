@@ -42,6 +42,13 @@ To start, simply (while in venv):
 python index.py
 ```
 
+Whenever installing a new dependency, make sure to update your requirements.txt
+file (while in venv):
+
+```
+rm requirements.txt && pip freeze > requirements.txt
+```
+
 If a fresh install, to install from requirements.txt (while in venv):
 
 ```
