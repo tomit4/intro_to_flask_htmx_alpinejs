@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, get_flashed_messages, render_template, request, flash, redirect, url_for, session
 from dotenv import dotenv_values, load_dotenv
 
 load_dotenv()
@@ -35,7 +35,6 @@ def create():
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
-
         if not title:
             flash('Title is required!')
         elif not content:
@@ -47,7 +46,8 @@ def create():
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
-
+    # TODO: this is the wrong approach when used with HTMX, we want serve html via live server and somehow get from localhost:5000/create, but HTMX defaults to /localhost:5000/create, which is why it is hosted here
+    print(get_flashed_messages())
     return render_template('create.html')
 
 

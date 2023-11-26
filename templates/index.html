@@ -41,10 +41,12 @@
         </p>
         <div class="content">
             {% block content %} {% endblock %}
+            <p x-data="{ messages: {{get_flashed_messages() }}}" x-text="messages"></p>
         </div>
       </article>
     </main>
   </body>
+  <!--  NOTE: Problemaic, scripts in this fashion will reload every render of block content -->
   <script src={{ url_for('static', filename='__modules/htmx.min.js') }} default defer></script>
   <script src={{ url_for('static', filename='__modules/alpine.min.js') }} default defer></script>
   <script src={{ url_for('static', filename='scripts/index.js') }} default defer></script>
