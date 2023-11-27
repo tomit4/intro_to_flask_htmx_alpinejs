@@ -59,7 +59,9 @@ pip install -r requirements.txt
 **TODO**:
 
 - [ ] Create GET, POST, PATCH, PUT, and DELETE Routes to html files for now.
-- [ ] Eventually connect flask to sqlite.
-- [ ] Create client in htmx, AlpineJS
+- [x] Eventually connect flask to sqlite.
+- [ ] Consider dropping AlpineJS in favor of using Flask's native Jinja
+      templating engine. There are some strange caveats to utilizing AlpineJS in this
+      manner (e.g. Jinja SQL macros instead of using python's json library).
 - [ ] Have client influence jinja templating and return back to htmx
 - [ ] Make Something with it
